@@ -50,15 +50,25 @@ public class touch : MonoBehaviour
 	{
 		paused.paused = true;
 	}
-
-	public void unPause()
-	{
-		paused.paused = false;
-	}
-
+		
 	public void restart()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
+
+	public void play()
+	{
+		SceneManager.LoadScene ("gerbang");
+	}
+
+	public void exit()
+	{
+		SceneManager.LoadScene ("menu");
+	}
+
+	public void quit()
+	{
+		Application.Quit ();
 	}
 }
 

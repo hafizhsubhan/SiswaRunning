@@ -16,14 +16,19 @@ public class pause : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (paused || Input.GetKeyDown(KeyCode.Escape)) {
-			Time.timeScale = 0;
-			showPause ();
-		}
-
-		if (!paused) {
-			Time.timeScale = 1;
-			hidePause ();
+		if(paused || Input.GetKeyDown(KeyCode.Escape))
+		{
+			if(Time.timeScale == 1)
+			{
+				Time.timeScale = 0;
+				showPause();
+				paused = false;
+			} else if (Time.timeScale == 0){
+				Debug.Log ("high");
+				paused = false;
+				Time.timeScale = 1;
+				hidePause();
+			}
 		}
 	}
 
