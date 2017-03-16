@@ -10,11 +10,13 @@ public class controll : MonoBehaviour
     public bool moveright;
     public bool moveleft;
     public bool jump;
+	public float faceright;
 	public float high;
 	public Transform groundcheck;
 	public LayerMask whatisGround;
 	public float groundcheckRadius;
 	bool isGrounded;
+	public Animator anim;
 
 	void FixedUpdate()
 	{
@@ -25,6 +27,8 @@ public class controll : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+		faceright = rb.transform.localScale.x;
+		anim = GetComponent<Animator> ();
     }
 
     void Update()
@@ -33,11 +37,22 @@ public class controll : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             rb.velocity = new Vector2(-movespeed, rb.velocity.y);
-
+			if (faceright > 0) {
+				Vector3 theScale = transform.localScale;
+				theScale.x *= -1;
+				transform.localScale = theScale;
+				faceright = rb.transform.localScale.x;
+			}
         }
         if (Input.GetKey(KeyCode.D))
         {
             rb.velocity = new Vector2(movespeed, rb.velocity.y);
+			if (faceright < 0) {
+				Vector3 theScale = transform.localScale;
+				theScale.x *= -1;
+				transform.localScale = theScale;
+				faceright = rb.transform.localScale.x;
+			}
         }
 
         if (moveright)
@@ -57,6 +72,8 @@ public class controll : MonoBehaviour
 				rb.velocity = new Vector2 (rb.velocity.x, high);
 			}
 		}
+
+		anim.SetFloat ("Speed", Mathf.Abs (rb.velocity.x));
     }
 }
 /* public class touchcontroll : MonoBehaviour {
