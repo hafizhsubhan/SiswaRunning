@@ -34,7 +34,7 @@ public class controll : MonoBehaviour
     void Update()
     {
   
-        if (Input.GetKey(KeyCode.A))
+		if (Input.GetKey(KeyCode.A) || moveleft)
         {
             rb.velocity = new Vector2(-movespeed, rb.velocity.y);
 			if (faceright > 0) {
@@ -44,7 +44,7 @@ public class controll : MonoBehaviour
 				faceright = rb.transform.localScale.x;
 			}
         }
-        if (Input.GetKey(KeyCode.D))
+		if (Input.GetKey(KeyCode.D) || moveright)
         {
             rb.velocity = new Vector2(movespeed, rb.velocity.y);
 			if (faceright < 0) {
@@ -55,17 +55,6 @@ public class controll : MonoBehaviour
 			}
         }
 
-        if (moveright)
-        {
-            rb.velocity = new Vector2(movespeed, rb.velocity.y);
-        }
-        if (moveleft)
-        {
-            rb.velocity = new Vector2(-movespeed, rb.velocity.y);
-        }
-
-
-
 		if (isGrounded) {
 			if (jump || Input.GetKey(KeyCode.W))
 			{
@@ -73,6 +62,7 @@ public class controll : MonoBehaviour
 			}
 		}
 
+		anim.SetFloat ("high", rb.velocity.y);
 		anim.SetFloat ("Speed", Mathf.Abs (rb.velocity.x));
     }
 }
