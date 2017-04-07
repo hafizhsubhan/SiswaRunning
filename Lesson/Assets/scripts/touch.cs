@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,14 @@ public class touch : MonoBehaviour
 		paused = FindObjectOfType<pause> ();
 
     }
+
+	void Update()
+	{
+		if(Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.LeftControl)){
+			File.Delete (Application.persistentDataPath + "/playerdata.dat");
+			Debug.Log ("Save Data Deleted!");
+		}
+	}
 
     public void LeftArrow()
     {
@@ -61,8 +70,14 @@ public class touch : MonoBehaviour
 		SceneManager.LoadScene ("gerbang");
 	}
 
+	public void cont()
+	{
+		SceneManager.LoadScene ("gerbang");
+	}
+
 	public void exit()
 	{
+		player.exit = true;
 		SceneManager.LoadScene ("menu");
 	}
 
@@ -70,6 +85,7 @@ public class touch : MonoBehaviour
 	{
 		Application.Quit ();
 	}
+
 }
 
 

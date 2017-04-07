@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 using UnityEngine;
 
 
 public class controll : MonoBehaviour
 {
     public Rigidbody2D rb;
+	public Camera Mainc;
     public float movespeed;
     public bool moveright;
     public bool moveleft;
     public bool jump;
 	public float faceright;
 	public float high;
+
+	public bool exit = false;
+	float SisPosX, SisPosY;
 	public Transform groundcheck;
 	public LayerMask whatisGround;
 	public float groundcheckRadius;
@@ -29,6 +35,16 @@ public class controll : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 		faceright = rb.transform.localScale.x;
 		anim = GetComponent<Animator> ();
+
+		if (File.Exists (Application.persistentDataPath + "/playerdata.dat")) {
+			Load ();
+			Vector3 temp = transform.position; // copy to an auxiliary variable...
+			temp.y = SisPosY;
+			temp.x = SisPosX;
+			transform.position = temp; // and save the modified value 
+			Debug.Log ("Position Loaded " + SisPosX + " & " + SisPosY);
+		}
+
     }
 
     void Update()
@@ -62,19 +78,53 @@ public class controll : MonoBehaviour
 			}
 		}
 
+		if (exit) {
+			SisPosX = rb.position.x;
+			SisPosY = rb.position.y;
+
+			Save ();
+			Debug.Log ("Last Position " + SisPosX + " & " + SisPosY);
+		}
+
+
 		anim.SetFloat ("high", rb.velocity.y);
 		anim.SetFloat ("Speed", Mathf.Abs (rb.velocity.x));
-    }
-}
-/* public class touchcontroll : MonoBehaviour {
+	}
 
-// Use this for initialization
-void Start () {
-		
+	public void Save(){
+
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create (Application.persistentDataPath + "/playerdata.dat");
+
+		PlayerData data = new PlayerData ();
+		data.SiswaPosX = SisPosX;
+		data.SiswaPosY = SisPosY;
+
+		bf.Serialize (file, data);
+		file.Close ();
+		Debug.Log (data.SiswaPosX + "&" + data.SiswaPosY);
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void Load(){
+
+		if (File.Exists (Application.persistentDataPath + "/playerdata.dat")) {
+
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (Application.persistentDataPath + "/playerdata.dat", FileMode.Open);
+
+			PlayerData data = (PlayerData)bf.Deserialize(file);
+			file.Close ();
+
+			SisPosX = data.SiswaPosX;
+			SisPosY = data.SiswaPosY;
+
+		}
 	}
-}*/
+}
+
+[System.Serializable]
+class PlayerData{
+	public float SiswaPosX;
+	public float SiswaPosY;
+}
