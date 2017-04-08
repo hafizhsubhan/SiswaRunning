@@ -4,35 +4,31 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour {
 
-	public LayerMask musuhMask;
-	public float speed = 0;
-	Rigidbody2D myBody;
-	Transform myTrans;
-	float myWidth;
+	public int speed; 
+	// Use this for initialization
 
-	void Start () 
-	{
-		myTrans = this.transform;
-		myBody = this.GetComponent<Rigidbody2D>();
-		myWidth = this.GetComponent<SpriteRenderer> ().bounds.extents.x;
+
+	// Update is called once per frame
+	void Update () {
+		transform.Translate (new Vector3 (speed, 0, 0) * Time.deltaTime);
 	}
-	
 
-	void FixedUpdate () 
+
+
+	void OnCollisionEnter2D(Collision2D col)
 	{
+		//Check collision name
 
-		Vector2 lineCastPos = myTrans.position - myTrans.right * myWidth;
-		Debug.DrawLine (lineCastPos, lineCastPos + Vector2.down);
-		bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos + Vector2.down,musuhMask);
 
-		if (!isGrounded) {
-			Vector3 PssSkrg = myTrans.eulerAngles;
-			PssSkrg.y += 180;
-			myTrans.eulerAngles = PssSkrg; 
+		if (col.gameObject.tag == "block"){
+
+			speed = speed * -1 ;
+
 		}
-		Vector2 myVel = myBody.velocity;
-		myVel.x = -myTrans.right.x * speed;
-		myBody.velocity = myVel;
+
+		if (col.gameObject.tag == "coin") {
+			
+		}
 
 	}
 }

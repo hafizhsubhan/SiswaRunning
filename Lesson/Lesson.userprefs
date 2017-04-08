@@ -1,7 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\destroy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\pause.cs">
     <Files>
+<<<<<<< HEAD
       <File FileName="Assets\scripts\destroy.cs" Line="9" Column="1" />
       <File FileName="Assets\scripts\scoremanager.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\enemy.cs" Line="1" Column="1" />
@@ -9,6 +10,13 @@
       <File FileName="Assets\scripts\controll.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\touch.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\quitapp.cs" Line="1" Column="1" />
+=======
+      <File FileName="Assets\scripts\destroy.cs" Line="43" Column="21" />
+      <File FileName="Assets\scripts\enemy.cs" Line="26" Column="4" />
+      <File FileName="Assets\scripts\EnemyMovement.cs" Line="6" Column="2" />
+      <File FileName="Assets\scripts\controll.cs" Line="45" Column="13" />
+      <File FileName="Assets\scripts\pause.cs" Line="1" Column="1" />
+>>>>>>> fbbf8d5122e9a9f1b2bf7d56773754ea9814b470
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
