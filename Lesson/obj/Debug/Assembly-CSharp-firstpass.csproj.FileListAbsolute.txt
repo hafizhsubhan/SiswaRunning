@@ -56,3 +56,32 @@ F:\Pelajaran\XII\PW\Siswa Running\Lesson\Temp\bin\Debug\UnityEngine.VR.xml
 F:\Pelajaran\XII\PW\Siswa Running\Lesson\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
 F:\Pelajaran\XII\PW\Siswa Running\Lesson\obj\Debug\Assembly-CSharp-firstpass.dll
 F:\Pelajaran\XII\PW\Siswa Running\Lesson\obj\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEditor.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.Analytics.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.HoloLens.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.Networking.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.VR.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\Unity.SerializationLogic.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\Unity.UNetWeaver.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\Unity.CecilTools.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.xml
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEditor.xml
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.UI.xml
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.Networking.xml
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.xml
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.Analytics.xml
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.HoloLens.xml
+C:\Users\PC\Documents\SiswaRunning\Lesson\Temp\bin\Debug\UnityEngine.VR.xml
+C:\Users\PC\Documents\SiswaRunning\Lesson\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
+C:\Users\PC\Documents\SiswaRunning\Lesson\obj\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\PC\Documents\SiswaRunning\Lesson\obj\Debug\Assembly-CSharp-firstpass.pdb
