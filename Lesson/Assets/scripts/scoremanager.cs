@@ -30,12 +30,8 @@ public class scoremanager : MonoBehaviour {
 			ScoreCount += pointPerSecond * Time.deltaTime;
 		}
 	if (hiScoreCount < ScoreCount) {
-			
 			hiScoreCount = ScoreCount;
-
 		}
-
-	
 
 		ScoreText.text = "Score: " + Mathf.Round(ScoreCount);
 		hiScoreText.text = "HighScore: " + Mathf.Round(hiScoreCount);

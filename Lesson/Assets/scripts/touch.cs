@@ -25,18 +25,18 @@ public class touch : MonoBehaviour
 		}
 	}
 
-    public void LeftArrow()
+    public void LeftArrow() //tombol kiri
     {
         player.moveright = false;
         player.moveleft = true;
     }
-    public void RightArrow()
+    public void RightArrow() //tombol kanan
     {
         player.moveright = true;
         player.moveleft = false;
     }
 
-    public void UpArrow()
+    public void UpArrow() //tombol atas
     {
 		player.jump = true;
     }

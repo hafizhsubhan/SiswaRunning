@@ -13,21 +13,20 @@ public class pause : MonoBehaviour {
 		showinpaused = GameObject.Find ("paused");
 		showinpaused.SetActive (false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void Update () { // untuk menghentikan sementara permainan (pause)
 		if(paused || Input.GetKeyDown(KeyCode.Escape))
 		{
-			if(Time.timeScale == 1)
+			if(Time.timeScale == 1) 
 			{
-				Time.timeScale = 0;
-				showPause();
+				Time.timeScale = 0; // untuk mematikan seluruh proses game (animasi, skrip, dll).
+				showPause(); // menampilkan pop up pause (Exit, Restart, Resume)
 				paused = false;
 			} else if (Time.timeScale == 0){
 				Debug.Log ("high");
 				paused = false;
 				Time.timeScale = 1;
-				hidePause();
+				hidePause(); // menutup pop up pause.
 			}
 		}
 	}

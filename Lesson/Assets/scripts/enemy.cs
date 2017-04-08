@@ -15,8 +15,6 @@ public class enemy : MonoBehaviour {
 		myTrans = this.transform;
 		myBody = this.GetComponent<Rigidbody2D>();
 		myWidth = this.GetComponent<SpriteRenderer> ().bounds.extents.x;
-
-
 	}
 	
 
@@ -31,11 +29,7 @@ public class enemy : MonoBehaviour {
 			Vector3 PssSkrg = myTrans.eulerAngles;
 			PssSkrg.y += 180;
 			myTrans.eulerAngles = PssSkrg; 
-
 		}
-
-
-
 		Vector2 myVel = myBody.velocity;
 		myVel.x = -myTrans.right.x * speed;
 		myBody.velocity = myVel;

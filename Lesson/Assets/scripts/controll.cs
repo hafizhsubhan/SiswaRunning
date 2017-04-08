@@ -49,30 +49,30 @@ public class controll : MonoBehaviour
 
     void Update()
     {
-  
-		if (Input.GetKey(KeyCode.A) || moveleft)
+		//Skrip untuk mengendalikan karakter (siswa)
+		if (Input.GetKey(KeyCode.A) || moveleft) //bergerak ke arah kiri
         {
             rb.velocity = new Vector2(-movespeed, rb.velocity.y);
 			if (faceright > 0) {
 				Vector3 theScale = transform.localScale;
 				theScale.x *= -1;
 				transform.localScale = theScale;
-				faceright = rb.transform.localScale.x;
+				faceright = rb.transform.localScale.x; // untuk mengubah hadap siswa (dari kanan ke kiri)
 			}
         }
-		if (Input.GetKey(KeyCode.D) || moveright)
+		if (Input.GetKey(KeyCode.D) || moveright) //bergerak ke arah kanan
         {
             rb.velocity = new Vector2(movespeed, rb.velocity.y);
 			if (faceright < 0) {
 				Vector3 theScale = transform.localScale;
 				theScale.x *= -1;
 				transform.localScale = theScale;
-				faceright = rb.transform.localScale.x;
+				faceright = rb.transform.localScale.x; // untuk mengubah hadap siswa (dari kiri ke kanan)
 			}
         }
 
 		if (isGrounded) {
-			if (jump || Input.GetKey(KeyCode.W))
+			if (jump || Input.GetKey(KeyCode.W)) // untuk melompat
 			{
 				rb.velocity = new Vector2 (rb.velocity.x, high);
 			}
@@ -91,7 +91,7 @@ public class controll : MonoBehaviour
 		anim.SetFloat ("Speed", Mathf.Abs (rb.velocity.x));
 	}
 
-	public void Save(){
+	public void Save(){ 
 
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/playerdata.dat");
