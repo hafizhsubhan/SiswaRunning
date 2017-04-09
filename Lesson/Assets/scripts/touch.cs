@@ -70,6 +70,11 @@ public class touch : MonoBehaviour
 		SceneManager.LoadScene ("gerbang");
 	}
 
+	public void about()
+	{
+		SceneManager.LoadScene ("about");
+	}
+
 	public void cont()
 	{
 		SceneManager.LoadScene ("gerbang");
