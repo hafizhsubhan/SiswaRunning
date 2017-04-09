@@ -8,6 +8,7 @@ public class touch : MonoBehaviour
 {
     private controll player;
 	private pause paused;
+	public string sceneToLoad;
 
 
     void Start()
@@ -68,6 +69,11 @@ public class touch : MonoBehaviour
 	public void play()
 	{
 		SceneManager.LoadScene ("gerbang");
+	}
+
+	public void enter()
+	{
+		SceneManager.LoadScene (sceneToLoad);
 	}
 
 	public void about()

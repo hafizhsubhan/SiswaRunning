@@ -22,7 +22,7 @@ public class death : MonoBehaviour {
 			Time.timeScale = 0;
 			if (waktu) {
 				reason.text = "You Are Late!";
-			} else {
+			} else if (mati){
 				reason.text = "You Are Bad Student!";
 			}
 			dead.SetActive (true);
