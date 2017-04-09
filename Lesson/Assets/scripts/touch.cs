@@ -81,6 +81,11 @@ public class touch : MonoBehaviour
 		SceneManager.LoadScene ("menu");
 	}
 
+	public void exitD()
+	{
+		SceneManager.LoadScene ("menu");
+	}
+
 	public void quit()
 	{
 		Application.Quit ();
