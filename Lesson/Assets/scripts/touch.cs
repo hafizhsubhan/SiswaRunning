@@ -8,6 +8,7 @@ public class touch : MonoBehaviour
 {
     private controll player;
 	private pause paused;
+	private LoadScene ld;
 	public string sceneToLoad;
 	public GameObject en;
 
@@ -16,7 +17,7 @@ public class touch : MonoBehaviour
     {
         player = FindObjectOfType<controll>();
 		paused = FindObjectOfType<pause> ();
-
+		ld = FindObjectOfType<LoadScene> ();
     }
 
 	void Update()
@@ -74,7 +75,7 @@ public class touch : MonoBehaviour
 
 	public void enter()
 	{
-		SceneManager.LoadScene (sceneToLoad);
+		ld.inZone = true;
 	}
 
 	public void about()
