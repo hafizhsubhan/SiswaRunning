@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scene/gerbang.unity
+- path: Assets/scene/koridor_atas.unity
   isLoaded: 1
   isActive: 1

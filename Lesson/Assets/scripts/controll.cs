@@ -39,8 +39,8 @@ public class controll : MonoBehaviour
 		if (File.Exists (Application.persistentDataPath + "/playerdata.dat")) {
 			Load ();
 			Vector3 temp = transform.position; // copy to an auxiliary variable...
-			temp.y = SisPosY;
-			temp.x = SisPosX;
+			//temp.y = SisPosY;
+			//temp.x = SisPosX;
 			transform.position = temp; // and save the modified value 
 			Debug.Log ("Position Loaded " + SisPosX + " & " + SisPosY);
 		}
