@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/scene/gerbang.unity
-=======
 - path: Assets/scene/about.unity
->>>>>>> 4d86baf93ba04217ad5467aee41423f07ab1236d
   isLoaded: 1
   isActive: 1
