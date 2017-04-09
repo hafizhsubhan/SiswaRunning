@@ -20,7 +20,7 @@ public class enemy : MonoBehaviour {
 		//Check collision name
 
 
-		if (col.gameObject.tag == "block"){
+		if (col.gameObject.tag == "block" || col.gameObject.name == "character" ){
 
 			speed = speed * -1 ;
 

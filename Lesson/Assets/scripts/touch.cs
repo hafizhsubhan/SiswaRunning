@@ -9,6 +9,7 @@ public class touch : MonoBehaviour
     private controll player;
 	private pause paused;
 	public string sceneToLoad;
+	public GameObject en;
 
 
     void Start()
@@ -91,6 +92,13 @@ public class touch : MonoBehaviour
 		player.exit = true;
 		SceneManager.LoadScene ("menu");
 	}
+
+	public void tutup()
+	{
+		en = GameObject.FindGameObjectWithTag ("pelajaran");
+		en.SetActive (false);
+	}
+
 
 	public void exitD()
 	{
