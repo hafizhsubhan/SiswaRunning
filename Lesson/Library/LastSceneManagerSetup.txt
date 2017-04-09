@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scene/koridor_atas.unity
+- path: Assets/scene/Quiz.unity
   isLoaded: 1
   isActive: 1
