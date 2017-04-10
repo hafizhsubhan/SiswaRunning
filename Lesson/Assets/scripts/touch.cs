@@ -102,7 +102,8 @@ public class touch : MonoBehaviour
 	public void nextstage()
 	{
 		sv.saveScore = true;
-		SceneManager.LoadScene (ld.load);
+
+		Debug.Log (ld.load);
 	}
 
 	public void about()

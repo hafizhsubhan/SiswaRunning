@@ -9,11 +9,11 @@ public class LoadMateri : MonoBehaviour {
 	public string judul;
 	public string materi;
 	public GameObject blj;
+	public string jawab;
 
 
 	// Use this for initialization
 	void Start () {
-		blj = GameObject.Find ("belajar");
 		blj.SetActive (false);
 	}
 
@@ -22,6 +22,11 @@ public class LoadMateri : MonoBehaviour {
 			blj.SetActive (true);
 			jdl.text = judul;
 			mtr.text = materi;
+		}
+	}
+	void OnTriggerExit2D(Collider2D trigger){
+		if (trigger.name == "character") {
+			blj.SetActive (false);
 		}
 	}
 }
