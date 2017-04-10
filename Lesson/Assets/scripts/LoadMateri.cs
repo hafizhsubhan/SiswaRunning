@@ -1,30 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadMateri : MonoBehaviour {
-	public GameObject en;
-	public bool inZone;
+	public Text jdl;
+	public Text mtr;
+	public string judul;
 	public string materi;
+	public GameObject blj;
+
 
 	// Use this for initialization
 	void Start () {
-	en = GameObject.Find (materi);
-		en.SetActive (false);
+		blj = GameObject.Find ("belajar");
+		blj.SetActive (false);
 	}
 
 	void OnTriggerEnter2D(Collider2D triger){
 		if (triger.name == "character") {
-			inZone = true;
-			en.SetActive (true);
+			blj.SetActive (true);
+			jdl.text = judul;
+			mtr.text = materi;
 		}
 	}
-
-	void OnTriggerExit2D(Collider2D trigger){
-		if (trigger.name == "character") {
-			inZone = false;
-			en.SetActive (false);
-		}
-	}
-
 }

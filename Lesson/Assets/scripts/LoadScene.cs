@@ -7,6 +7,7 @@ public class LoadScene : MonoBehaviour {
 	public GameObject en;
 	public Text coin;
 	public Text nyawa;
+	public string load;
 
 	public GameObject next;
 	public bool inZone;
@@ -15,9 +16,7 @@ public class LoadScene : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gm = FindObjectOfType<GameScore> ();
-		next = GameObject.Find ("nextlevel");
 		next.SetActive (false);
-		en = GameObject.Find ("enter");
 		en.SetActive (false);
 	}
 

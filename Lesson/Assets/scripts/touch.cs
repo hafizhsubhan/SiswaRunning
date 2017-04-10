@@ -11,8 +11,7 @@ public class touch : MonoBehaviour
 	private pause paused;
 	private LoadScene ld;
 	private GameScore sv;
-	public string sceneToLoad;
-	public GameObject en;
+	public GameObject tutorial;
 	int scene;
 
 
@@ -22,6 +21,7 @@ public class touch : MonoBehaviour
 		paused = FindObjectOfType<pause> ();
 		ld = FindObjectOfType<LoadScene> ();
 		sv = FindObjectOfType<GameScore> ();
+		tutorial = GameObject.Find ("tutor");
     }
 
 	void Update()
@@ -99,10 +99,10 @@ public class touch : MonoBehaviour
 		ld.inZone = true;
 	}
 
-	public void load()
+	public void nextstage()
 	{
 		sv.saveScore = true;
-		SceneManager.LoadScene (sceneToLoad);
+		SceneManager.LoadScene (ld.load);
 	}
 
 	public void about()
@@ -122,8 +122,8 @@ public class touch : MonoBehaviour
 
 	public void tutup()
 	{
-		en = GameObject.FindGameObjectWithTag ("pelajaran");
-		en.SetActive (false);
+		tutorial.SetActive (false);
+		Time.timeScale = 1;
 	}
 
 

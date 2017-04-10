@@ -17,6 +17,7 @@ public class controll : MonoBehaviour
 	public float faceright;
 	public float high;
 	private GameScore gm;
+	public GameObject tutorial;
 
 	public bool exit = false;
 	int scene, coin, health;
@@ -39,10 +40,17 @@ public class controll : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 		faceright = rb.transform.localScale.x;
 		anim = GetComponent<Animator> ();
-
+		tutorial = GameObject.Find ("tutor");
+		tutorial.SetActive (false);
 		scene = SceneManager.GetActiveScene ().buildIndex;
 		SaveScene ();
+		tutor ();
     }
+
+	void tutor(){
+		Time.timeScale = 0;
+		tutorial.SetActive (true);
+	}
 
     void Update()
     {
