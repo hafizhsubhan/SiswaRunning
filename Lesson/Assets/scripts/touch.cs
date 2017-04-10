@@ -78,6 +78,11 @@ public class touch : MonoBehaviour
 		ld.inZone = true;
 	}
 
+	public void load()
+	{
+		SceneManager.LoadScene (sceneToLoad);
+	}
+
 	public void about()
 	{
 		SceneManager.LoadScene ("about");

@@ -9,7 +9,7 @@ public class LoadScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		next = GameObject.FindGameObjectWithTag ("next");
+		next = GameObject.Find ("nextlevel");
 		next.SetActive (false);
 		en = GameObject.Find ("enter");
 		en.SetActive (false);
@@ -28,6 +28,7 @@ public class LoadScene : MonoBehaviour {
 	}
 	void Update() {
 		if (inZone) {
+			en.SetActive (false);
 			Time.timeScale = 0;
 			next.SetActive (true);
 		}
