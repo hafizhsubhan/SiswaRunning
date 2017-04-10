@@ -12,7 +12,7 @@ public class touch : MonoBehaviour
 	private LoadScene ld;
 	private GameScore sv;
 	public GameObject tutorial;
-	int scene;
+	string scene;
 
 
     void Start()
@@ -29,6 +29,7 @@ public class touch : MonoBehaviour
 		if(Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.LeftControl)){
 			File.Delete (Application.persistentDataPath + "/scoredata.dat");
 			File.Delete (Application.persistentDataPath + "/scenedata.dat");
+			File.Delete (Application.persistentDataPath + "/kuncidata.dat");
 			Debug.Log ("Save Data Deleted!");
 		}
 	}
@@ -78,9 +79,9 @@ public class touch : MonoBehaviour
 	{
 		if (File.Exists (Application.persistentDataPath + "/scenedata.dat")) {
 			Load ();
-			SceneManager.LoadSceneAsync (scene);
+			SceneManager.LoadScene (scene);
 		} else {
-			SceneManager.LoadSceneAsync (2);
+			SceneManager.LoadScene ("gerbang");
 		}
 	}
 
@@ -101,6 +102,7 @@ public class touch : MonoBehaviour
 
 	public void nextstage()
 	{
+		Debug.Log (ld.load);
 		sv.saveScore = true;
 		SceneManager.LoadScene (ld.load);
 	}
@@ -117,7 +119,7 @@ public class touch : MonoBehaviour
 
 	public void exit()
 	{
-		scene = SceneManager.GetActiveScene ().buildIndex + 1;
+		scene = ld.load;
 		SaveScene ();
 		SceneManager.LoadScene ("menu");
 	}
@@ -156,6 +158,7 @@ public class touch : MonoBehaviour
 
 [System.Serializable]
 class SceneData{
-	public int sceneToLoad;
+	public string sceneToLoad;
+
 }
 

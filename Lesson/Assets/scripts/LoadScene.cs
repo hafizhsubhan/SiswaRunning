@@ -10,7 +10,7 @@ public class LoadScene : MonoBehaviour {
 	public string load;
 
 	public GameObject next;
-	public bool inZone;
+	public bool inZone = false;
 	private GameScore gm;
 
 	// Use this for initialization
@@ -40,5 +40,8 @@ public class LoadScene : MonoBehaviour {
 			next.SetActive (true);
 		}
 
+	}
+	public void ent(){
+		inZone = true;
 	}
 }

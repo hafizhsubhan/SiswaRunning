@@ -11,15 +11,13 @@ public class LoadMateri : MonoBehaviour {
 	public GameObject blj;
 	public string jawab;
 	public int sinau = 0;
-	int x = 1;
-	private kuncikl key;
+	public int x = 1;
 	public bool close = false;
 	public GameObject buku;
 
 	// Use this for initialization
 	void Start () {
 		blj.SetActive (false);
-		key = FindObjectOfType<kuncikl> ();
 	}
 
 	void OnTriggerEnter2D(Collider2D triger){
@@ -42,7 +40,7 @@ public class LoadMateri : MonoBehaviour {
 			x += 1;
 		}
 		if (x >= 4) {
-			key.pintar = true;
+			
 		}
 	}
 
