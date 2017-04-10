@@ -43,7 +43,6 @@ public class controll : MonoBehaviour
 		tutorial = GameObject.Find ("tutor");
 		tutorial.SetActive (false);
 		scene = SceneManager.GetActiveScene ().buildIndex;
-		SaveScene ();
 		tutor ();
     }
 
@@ -87,21 +86,4 @@ public class controll : MonoBehaviour
 		anim.SetFloat ("high", rb.velocity.y);
 		anim.SetFloat ("Speed", Mathf.Abs (rb.velocity.x));
 	}
-
-	public void SaveScene(){ 
-
-		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Create (Application.persistentDataPath + "/scenedata.dat");
-
-		SceneData data = new SceneData ();
-		data.sceneToLoad = scene;
-
-		bf.Serialize (file, data);
-		file.Close ();
-	}
-}
-
-[System.Serializable]
-class SceneData{
-	public int sceneToLoad;
 }

@@ -102,8 +102,7 @@ public class touch : MonoBehaviour
 	public void nextstage()
 	{
 		sv.saveScore = true;
-
-		Debug.Log (ld.load);
+		SceneManager.LoadScene (ld.load);
 	}
 
 	public void about()
@@ -118,7 +117,21 @@ public class touch : MonoBehaviour
 
 	public void exit()
 	{
+		scene = SceneManager.GetActiveScene ().buildIndex + 1;
+		SaveScene ();
 		SceneManager.LoadScene ("menu");
+	}
+
+	public void SaveScene(){ 
+
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create (Application.persistentDataPath + "/scenedata.dat");
+
+		SceneData data = new SceneData ();
+		data.sceneToLoad = scene;
+
+		bf.Serialize (file, data);
+		file.Close ();
 	}
 
 	public void tutup()
@@ -140,4 +153,9 @@ public class touch : MonoBehaviour
 
 }
 
+
+[System.Serializable]
+class SceneData{
+	public int sceneToLoad;
+}
 
