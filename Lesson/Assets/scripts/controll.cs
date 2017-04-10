@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class controll : MonoBehaviour
@@ -15,9 +16,10 @@ public class controll : MonoBehaviour
     public bool jump;
 	public float faceright;
 	public float high;
+	private GameScore gm;
 
 	public bool exit = false;
-	float SisPosX, SisPosY;
+	int scene, coin, health;
 	public Transform groundcheck;
 	public LayerMask whatisGround;
 	public float groundcheckRadius;
@@ -32,19 +34,14 @@ public class controll : MonoBehaviour
 
     void Start()
     {
+		
+		gm = FindObjectOfType<GameScore> ();
         rb = GetComponent<Rigidbody2D>();
 		faceright = rb.transform.localScale.x;
 		anim = GetComponent<Animator> ();
 
-		if (File.Exists (Application.persistentDataPath + "/playerdata.dat")) {
-			Load ();
-			Vector3 temp = transform.position; // copy to an auxiliary variable...
-			//temp.y = SisPosY;
-			//temp.x = SisPosX;
-			transform.position = temp; // and save the modified value 
-			Debug.Log ("Position Loaded " + SisPosX + " & " + SisPosY);
-		}
-
+		scene = SceneManager.GetActiveScene ().buildIndex;
+		SaveScene ();
     }
 
     void Update()
@@ -78,53 +75,25 @@ public class controll : MonoBehaviour
 			}
 		}
 
-		if (exit) {
-			SisPosX = rb.position.x;
-			SisPosY = rb.position.y;
-
-			Save ();
-			Debug.Log ("Last Position " + SisPosX + " & " + SisPosY);
-		}
-
 
 		anim.SetFloat ("high", rb.velocity.y);
 		anim.SetFloat ("Speed", Mathf.Abs (rb.velocity.x));
 	}
 
-	public void Save(){ 
+	public void SaveScene(){ 
 
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Create (Application.persistentDataPath + "/playerdata.dat");
+		FileStream file = File.Create (Application.persistentDataPath + "/scenedata.dat");
 
-		PlayerData data = new PlayerData ();
-		data.SiswaPosX = SisPosX;
-		data.SiswaPosY = SisPosY;
+		SceneData data = new SceneData ();
+		data.sceneToLoad = scene;
 
 		bf.Serialize (file, data);
 		file.Close ();
-		Debug.Log (data.SiswaPosX + "&" + data.SiswaPosY);
-
-	}
-
-	public void Load(){
-
-		if (File.Exists (Application.persistentDataPath + "/playerdata.dat")) {
-
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open (Application.persistentDataPath + "/playerdata.dat", FileMode.Open);
-
-			PlayerData data = (PlayerData)bf.Deserialize(file);
-			file.Close ();
-
-			SisPosX = data.SiswaPosX;
-			SisPosY = data.SiswaPosY;
-
-		}
 	}
 }
 
 [System.Serializable]
-class PlayerData{
-	public float SiswaPosX;
-	public float SiswaPosY;
+class SceneData{
+	public int sceneToLoad;
 }

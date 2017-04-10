@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SceneManagement;
 
 public class touch : MonoBehaviour
@@ -9,8 +10,10 @@ public class touch : MonoBehaviour
     private controll player;
 	private pause paused;
 	private LoadScene ld;
+	private GameScore sv;
 	public string sceneToLoad;
 	public GameObject en;
+	int scene;
 
 
     void Start()
@@ -18,12 +21,14 @@ public class touch : MonoBehaviour
         player = FindObjectOfType<controll>();
 		paused = FindObjectOfType<pause> ();
 		ld = FindObjectOfType<LoadScene> ();
+		sv = FindObjectOfType<GameScore> ();
     }
 
 	void Update()
 	{
 		if(Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.LeftControl)){
-			File.Delete (Application.persistentDataPath + "/playerdata.dat");
+			File.Delete (Application.persistentDataPath + "/scoredata.dat");
+			File.Delete (Application.persistentDataPath + "/scenedata.dat");
 			Debug.Log ("Save Data Deleted!");
 		}
 	}
@@ -65,12 +70,28 @@ public class touch : MonoBehaviour
 		
 	public void restart()
 	{
+		Debug.Log (SceneManager.GetActiveScene ().buildIndex);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	public void play()
 	{
-		SceneManager.LoadScene ("gerbang");
+		if (File.Exists (Application.persistentDataPath + "/scenedata.dat")) {
+			Load ();
+			SceneManager.LoadSceneAsync (scene);
+		} else {
+			SceneManager.LoadSceneAsync (2);
+		}
+	}
+
+	public void Load(){
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Open (Application.persistentDataPath + "/scenedata.dat", FileMode.Open);
+	
+		SceneData data = (SceneData)bf.Deserialize (file);
+		file.Close ();
+
+		scene = data.sceneToLoad;
 	}
 
 	public void enter()
@@ -80,6 +101,7 @@ public class touch : MonoBehaviour
 
 	public void load()
 	{
+		sv.saveScore = true;
 		SceneManager.LoadScene (sceneToLoad);
 	}
 
@@ -95,7 +117,6 @@ public class touch : MonoBehaviour
 
 	public void exit()
 	{
-		player.exit = true;
 		SceneManager.LoadScene ("menu");
 	}
 

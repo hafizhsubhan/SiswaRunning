@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour {
 	public GameObject en;
+	public Text coin;
+	public Text nyawa;
+
 	public GameObject next;
 	public bool inZone;
+	private GameScore gm;
 
 	// Use this for initialization
 	void Start () {
+		gm = FindObjectOfType<GameScore> ();
 		next = GameObject.Find ("nextlevel");
 		next.SetActive (false);
 		en = GameObject.Find ("enter");
@@ -30,6 +36,8 @@ public class LoadScene : MonoBehaviour {
 		if (inZone) {
 			en.SetActive (false);
 			Time.timeScale = 0;
+			coin.text = ": " + gm.points;
+			nyawa.text = ": " + gm.nyawa;
 			next.SetActive (true);
 		}
 
