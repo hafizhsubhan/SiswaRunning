@@ -14,6 +14,7 @@ public class controll : MonoBehaviour
     public bool moveright;
     public bool moveleft;
     public bool jump;
+	public float pos;
 	public float faceright;
 	public float high;
 	private GameScore gm;

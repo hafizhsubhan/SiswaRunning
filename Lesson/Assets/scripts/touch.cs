@@ -12,11 +12,13 @@ public class touch : MonoBehaviour
 	private LoadScene ld;
 	private GameScore sv;
 	public GameObject tutorial;
+	GameObject usr;
 	string scene;
 
 
     void Start()
     {
+		usr = GameObject.Find ("character");
         player = FindObjectOfType<controll>();
 		paused = FindObjectOfType<pause> ();
 		ld = FindObjectOfType<LoadScene> ();
@@ -30,6 +32,7 @@ public class touch : MonoBehaviour
 			File.Delete (Application.persistentDataPath + "/scoredata.dat");
 			File.Delete (Application.persistentDataPath + "/scenedata.dat");
 			File.Delete (Application.persistentDataPath + "/kuncidata.dat");
+			File.Delete (Application.persistentDataPath + "/posdata.dat");
 			Debug.Log ("Save Data Deleted!");
 		}
 	}
@@ -103,8 +106,29 @@ public class touch : MonoBehaviour
 	public void nextstage()
 	{
 		Debug.Log (ld.load);
-		sv.saveScore = true;
-		SceneManager.LoadScene (ld.load);
+		if (File.Exists (Application.persistentDataPath + "/posdata.dat")) {
+			sv.saveScore = true;
+			SceneManager.LoadScene (ld.load);
+		} else {
+			if (ld.load == "kelas") {
+				SavePos ();	
+			}
+			sv.saveScore = true;
+			SceneManager.LoadScene (ld.load);
+		}
+	}
+
+	public void SavePos(){ 
+
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create (Application.persistentDataPath + "/posdata.dat");
+
+		posData data = new posData ();
+		data.x = usr.transform.position.x;
+
+		bf.Serialize (file, data);
+		file.Close ();
+		Debug.Log (usr.transform.position.x);
 	}
 
 	public void about()
@@ -159,6 +183,12 @@ public class touch : MonoBehaviour
 [System.Serializable]
 class SceneData{
 	public string sceneToLoad;
+
+}
+
+[System.Serializable]
+class posData{
+	public float x;
 
 }
 
