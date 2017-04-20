@@ -1,20 +1,22 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\LoadMateri.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\fixbug.cs">
     <Files>
       <File FileName="Assets\scripts\time.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\destroy.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\LoadScene.cs" Line="34" Column="17" />
+      <File FileName="Assets\scripts\LoadScene.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\GameScore.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\LoadMateri.cs" Line="44" Column="10" />
+      <File FileName="Assets\scripts\LoadMateri.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\highscore.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\flash.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\EnemyMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\touch.cs" Line="122" Column="20" />
-      <File FileName="Assets\scripts\fixbug.cs" Line="12" Column="17" />
-      <File FileName="Assets\scripts\controll.cs" Line="44" Column="15" />
-      <File FileName="Assets\scripts\kuncikl.cs" Line="8" Column="23" />
+      <File FileName="Assets\scripts\touch.cs" Line="146" Column="45" />
+      <File FileName="Assets\scripts\fixbug.cs" Line="58" Column="23" />
+      <File FileName="Assets\scripts\controll.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\death.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\fixbugkelas.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\about.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\tutorial.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

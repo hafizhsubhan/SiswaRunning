@@ -143,6 +143,13 @@ public class touch : MonoBehaviour
 
 	public void exit()
 	{
+		scene = SceneManager.GetActiveScene().name;
+		SaveScene ();
+		SceneManager.LoadScene ("menu");
+	}
+
+	public void exitdead()
+	{
 		scene = ld.load;
 		SaveScene ();
 		SceneManager.LoadScene ("menu");

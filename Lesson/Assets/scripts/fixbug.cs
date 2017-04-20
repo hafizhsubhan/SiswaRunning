@@ -10,6 +10,7 @@ public class fixbug : MonoBehaviour {
 	public GameObject kelastrigger;
 	private LoadScene ls;
 	public GameObject player;
+	public GameObject tut;
 	public Text title;
 	public Text nex;
 
@@ -53,6 +54,8 @@ public class fixbug : MonoBehaviour {
 			ls.load = "koridor_atas";
 			title.text = "Siap Ujian? jangan lupa berdoa sebelum memulai ya!";
 			nex.text = "Ke Koridor Atas";
+			tut.SetActive (false);
+			Time.timeScale = 1;
 			Vector3 temp = kelastrigger.transform.position;
 			temp.x = 41.9f;
 			kelastrigger.transform.position = temp;
