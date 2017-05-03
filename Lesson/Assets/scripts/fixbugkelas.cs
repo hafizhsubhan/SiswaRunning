@@ -13,9 +13,11 @@ public class fixbugkelas : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (key.x >= 4) {
+		if (key.x >= 1) {
 			Savekunci ();
 			Debug.Log ("You Got a Key!");
+		} else {
+			Debug.Log ("No Key");
 		}
 	}
 

@@ -12,14 +12,11 @@ public class tutorial : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (x >= 3) {
-			Time.timeScale = 1;
-			Destroy (tutor = GameObject.Find ("tutor"));
-		}	
+
 	}
 
 	public void clos(){
-		Destroy(tutor = GameObject.Find ("tutor" + x));
-		x += 1;
+		Destroy (tutor = GameObject.Find ("tutor"));
+		Time.timeScale = 1;
 	}
 }

@@ -38,9 +38,7 @@ public class LoadMateri : MonoBehaviour {
 			Destroy (buku);
 			close = false;
 			x += 1;
-		}
-		if (x >= 4) {
-			
+			Debug.Log ("buku" + x);
 		}
 	}
 

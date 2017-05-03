@@ -21,9 +21,9 @@ public class death : MonoBehaviour {
 		if (mati) {
 			Time.timeScale = 0;
 			if (waktu) {
-				reason.text = "You Are Late!";
+				reason.text = "Gunakan Wakutmu Sebaik Mungkin!";
 			} else if (mati){
-				reason.text = "You Are Bad Student!";
+				reason.text = "Belajarlah untuk menjadi lebih baik lagi!";
 			}
 			dead.SetActive (true);
 		}

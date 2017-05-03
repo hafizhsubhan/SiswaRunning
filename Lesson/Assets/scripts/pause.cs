@@ -19,6 +19,7 @@ public class pause : MonoBehaviour {
 		{
 			if(Time.timeScale == 1) 
 			{
+				Debug.Log (Time.timeScale);
 				Time.timeScale = 0; // untuk mematikan seluruh proses game (animasi, skrip, dll).
 				showPause(); // menampilkan pop up pause (Exit, Restart, Resume)
 				paused = false;

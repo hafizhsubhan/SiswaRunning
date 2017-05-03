@@ -10,19 +10,23 @@ public class touch : MonoBehaviour
     private controll player;
 	private pause paused;
 	private LoadScene ld;
+	private music msc;
 	private GameScore sv;
 	public GameObject tutorial;
+	public GameObject begee;
 	GameObject usr;
 	string scene;
 
 
     void Start()
     {
+		begee = GameObject.Find ("bgm");
 		usr = GameObject.Find ("character");
         player = FindObjectOfType<controll>();
 		paused = FindObjectOfType<pause> ();
 		ld = FindObjectOfType<LoadScene> ();
 		sv = FindObjectOfType<GameScore> ();
+		msc = FindObjectOfType<music> ();
 		tutorial = GameObject.Find ("tutor");
     }
 
@@ -34,6 +38,14 @@ public class touch : MonoBehaviour
 			File.Delete (Application.persistentDataPath + "/kuncidata.dat");
 			File.Delete (Application.persistentDataPath + "/posdata.dat");
 			Debug.Log ("Save Data Deleted!");
+		}
+	}
+
+	public void switc(){
+		if (msc.passong) {
+			msc.passong = false;
+		} else {
+			msc.passong = true;
 		}
 	}
 
@@ -145,6 +157,7 @@ public class touch : MonoBehaviour
 	{
 		scene = SceneManager.GetActiveScene().name;
 		SaveScene ();
+		Destroy (begee);
 		SceneManager.LoadScene ("menu");
 	}
 
@@ -152,6 +165,7 @@ public class touch : MonoBehaviour
 	{
 		scene = ld.load;
 		SaveScene ();
+		Destroy (begee);
 		SceneManager.LoadScene ("menu");
 	}
 
@@ -176,6 +190,7 @@ public class touch : MonoBehaviour
 
 	public void exitD()
 	{
+		Destroy (begee);
 		SceneManager.LoadScene ("menu");
 	}
 

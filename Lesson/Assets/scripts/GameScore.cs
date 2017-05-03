@@ -32,7 +32,7 @@ public class GameScore : MonoBehaviour {
 		}
 	}
 
-	public void SaveScore(){ 
+	public void SaveScore(){ //menyimpan skor dan nyawa
 
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/scoredata.dat");
@@ -45,7 +45,7 @@ public class GameScore : MonoBehaviour {
 		file.Close ();
 	}
 
-	public void Load(){
+	public void Load(){ //
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Open (Application.persistentDataPath + "/scoredata.dat", FileMode.Open);
 

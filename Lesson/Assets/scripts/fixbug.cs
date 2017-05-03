@@ -12,7 +12,6 @@ public class fixbug : MonoBehaviour {
 	public GameObject player;
 	public GameObject tut;
 	public Text title;
-	public Text nex;
 
 	// Use this for initialization
 	void Start () {
@@ -50,15 +49,17 @@ public class fixbug : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (kuncilab != 0) {
+		if (kuncilab == 1) {
 			ls.load = "koridor_atas";
-			title.text = "Siap Ujian? jangan lupa berdoa sebelum memulai ya!";
-			nex.text = "Ke Koridor Atas";
+			title.text = "Ayo Ujian Sekarang!";
 			tut.SetActive (false);
 			Time.timeScale = 1;
 			Vector3 temp = kelastrigger.transform.position;
 			temp.x = 41.9f;
 			kelastrigger.transform.position = temp;
+		}
+		else {
+			Debug.Log (kuncilab);
 		}
 	}
 }
